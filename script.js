@@ -1,8 +1,10 @@
-const button = document.querySelector('button');
+const addButton = document.querySelector('button');
 const list = document.querySelector('ul');
 
+
 const textField = document.querySelector('input');
-textField.value
+
+
 
 const addListItem = () => {
     if (textField.value) {
@@ -23,8 +25,16 @@ const addListItem = () => {
         listItem.appendChild(deleteBtn);
         list.appendChild(listItem);
 
+        deleteBtn.addEventListener('click', function() {
+            listItem.parentNode.removeChild(listItem);
+          });
+
+        completeBtn.addEventListener('click', function () {
+            task.classList.add('strike');
+        });
+
         textField.value = '';
     }
 }
 
-button.addEventListener("click", addListItem);
+addButton.addEventListener("click", addListItem);
